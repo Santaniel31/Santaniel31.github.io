@@ -1,0 +1,126 @@
+body, html {
+    width: 320px;
+    height: 600px;
+    background-color: #141221;
+    overflow: hidden;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "SUSE", sans-serif;
+    margin: 0;
+}
+
+.box-block {
+    position: absolute;
+    top: 15%;
+}
+
+.box-block img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    animation-name: jump;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    padding: 50px;
+}
+
+.button-open {
+    text-align: center;
+    position: absolute;
+    top: 65%;
+}
+
+.button-open button {
+    outline: none;
+    height: 40px;
+    width: 130px;
+    border-radius: 40px;
+    text-align: center;
+    border: 2px solid #008000;
+    background: #141221;
+    color: #FFFFFF;
+    letter-spacing:1px;
+    text-shadow:0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.modal-award {
+    background-color: #473e80;
+    display: none;
+    position: absolute;
+    opacity: .9;
+    width: 330px;
+    height: 200px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.modal-award.show {
+    display: block;
+    opacity: .9;
+}
+
+.modal-award h1,p {
+    padding-left: 20px;
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: none; /* Initially hidden */
+    z-index: 10; /* Make sure it's behind the modal but above other elements */
+}
+
+.modal-award.show .modal-background {
+    display: block;
+}
+
+
+@keyframes jump {
+    from, 20%, 53%, 80%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    40%, 43% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -30px, 0);
+    }
+
+    70% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -15px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0,-4px,0);
+        transform: translate3d(0,-4px,0);
+    }
+}
+
+.jump {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+}
