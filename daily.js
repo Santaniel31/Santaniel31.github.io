@@ -26,13 +26,14 @@ button.onclick = function() {
     }
 };
 
+let data = {
+    award: dailyPoint.toString()
+};
+
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     if (mainButton.text == "Закрыть") {
         tg.close();
     } else {
-        let data = {
-            award: dailyPoint.toString()
-        };
         tg.sendData(JSON.stringify(data));
     }
 });
