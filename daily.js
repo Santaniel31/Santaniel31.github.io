@@ -1,12 +1,11 @@
 let tg = window.Telegram.WebApp;
-const userID = 321312;
-console.log(tg.initData);
+const userID = tg.WebAppUser.id;
+alert(userID)
 tg.expand();
 tg.headerColor = "#17212b";
 tg.MainButton.textColor = "#FFFFFF"
 tg.MainButton.color = "#008000";
 tg.MainButton.setText("Получить");
-alert(userID);
 
 const dbPromise = new Promise((resolve, reject) => {
     const request = indexedDB.open("userAwards", 1);
