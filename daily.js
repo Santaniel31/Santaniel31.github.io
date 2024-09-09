@@ -35,7 +35,6 @@ button.onclick = function() {
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    alert(data.award)
     if (mainButton.text == "Закрыть") {
         tg.close();
     } else {
