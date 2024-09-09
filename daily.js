@@ -1,5 +1,6 @@
 let tg = window.Telegram.WebApp;
 const userID = tg.WebAppUser.id;
+alert(userID)
 tg.expand();
 tg.headerColor = "#17212b";
 tg.MainButton.textColor = "#FFFFFF"
