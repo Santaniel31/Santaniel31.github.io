@@ -1,5 +1,6 @@
 let tg = window.Telegram.WebApp;
-const userID = tg.initDataUnsafe.user.id;
+const userID = 321312;
+console.log(tg.initData);
 tg.expand();
 tg.headerColor = "#17212b";
 tg.MainButton.textColor = "#FFFFFF"
