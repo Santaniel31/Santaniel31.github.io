@@ -1,6 +1,5 @@
 let tg = window.Telegram.WebApp;
 const userID = tg.WebAppUser.id;
-alert(userID)
 tg.expand();
 tg.headerColor = "#17212b";
 tg.MainButton.textColor = "#FFFFFF"
@@ -106,3 +105,11 @@ button.onclick = async function() {
     modal.classList.add("show");
     tg.MainButton.show()
 };
+
+tg.MainButton.onEvent("click", () => {
+    if (tg.MainButton.getText() === "Закрыть") {
+        tg.close();
+    } else {
+        tg.SendData(toString(countAward));
+    }
+});
