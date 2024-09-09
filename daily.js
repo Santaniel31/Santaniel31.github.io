@@ -5,7 +5,7 @@ tg.MainButton.textColor = "#FFFFFF"
 tg.MainButton.color = "#008000";
 tg.MainButton.setText("Получить");
 
-let dailyPoint;
+let dailyPoint = Math.floor(Math.random() * 71) + 30;;
 let counter = 0;
 const button = document.getElementById("open-box");
 const modal = document.getElementsByClassName("modal-award")[0];
@@ -13,7 +13,6 @@ const countAward = document.getElementById("countAward");
 const nextAward = document.getElementById("nextAward");
 
 button.onclick = function() {
-    dailyPoint = Math.floor(Math.random() * 71) + 30;
     countAward.textContent = `Вы получили: ${dailyPoint}💎`;
     nextAward.textContent = "Возвращайтесь через 12 часов";
     modal.classList.add("show");
