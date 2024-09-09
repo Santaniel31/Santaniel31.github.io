@@ -5,6 +5,7 @@ tg.headerColor = "#17212b";
 tg.MainButton.textColor = "#FFFFFF"
 tg.MainButton.color = "#008000";
 tg.MainButton.setText("Получить");
+alert(userID);
 
 const dbPromise = new Promise((resolve, reject) => {
     const request = indexedDB.open("userAwards", 1);
