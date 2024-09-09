@@ -10,8 +10,20 @@ const modal = document.getElementsByClassName("modal-award")[0];
 const countAward = document.getElementById("countAward");
 const nextAward = document.getElementById("nextAward");
 
+let dailyPoint = 0; 
+let counter = 0;
+
+let data = {
+    award: 0 
+};
+
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    data.award = dailyPoint;
+    tg.sendData(JSON.stringify(data));
+});
+
 button.onclick = function() {
-    let dailyPoint = Math.floor(Math.random() * 71) + 30;
+    dailyPoint = Math.floor(Math.random() * 71) + 30;
     countAward.textContent = `Вы получили: ${dailyPoint}💎`;
     nextAward.textContent = "Возвращайтесь через 12 часов";
     modal.classList.add("show");
@@ -22,11 +34,3 @@ button.onclick = function() {
         return;
     }
 };
-
-let data = {
-    award: dailyPoint.toString() 
-};
-
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-    tg.sendData(JSON.stringify(data));
-});
