@@ -9,8 +9,6 @@ const button = document.getElementById("open-box");
 const modal = document.getElementsByClassName("modal-award")[0];
 const countAward = document.getElementById("countAward");
 const nextAward = document.getElementById("nextAward");
-let dailyPoint = 0;
-let counter = 0;
 
 button.onclick = function() {
     dailyPoint = Math.floor(Math.random() * 71) + 30;
@@ -19,17 +17,16 @@ button.onclick = function() {
     modal.classList.add("show");
     tg.MainButton.show()
     counter += 1;
+    
+    let data = {
+        award: dailyPoint.toString() 
+    };
+
     if (counter > 1) {
-        countAward.textContent = `Награда еще недоступна`;
-        data["award"] = 0;
+        return;
     }
+    Telegram.WebApp.onEvent("mainButtonClicked", function(){
+        tg.sendData(JSON.stringify(data));
+    });
 };
-
-let data = {
-    award: dailyPoint.toString()
-};
-
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-    tg.sendData(JSON.stringify(data));
-});
 
